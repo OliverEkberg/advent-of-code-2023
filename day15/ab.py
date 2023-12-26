@@ -17,10 +17,7 @@ for step in steps:
     boxes[hash(label)][label] = int(value)
   else:
     label = step.replace('-', '')
-    box = hash(label)
-
-    if label in boxes[box]:
-      del boxes[box][label]
+    boxes[hash(label)].pop(label, None)
 
 print(sum(map(hash, steps)))
 print(sum(
